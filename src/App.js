@@ -18,11 +18,11 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Navbar dark color="secondary">
+        <nav class="navbar navbar-dark bg-dark">
           <div className="containerr">
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>
-        </Navbar>
+        </nav>
   
         <Menu platos={this.state.platos} />
       </div>
