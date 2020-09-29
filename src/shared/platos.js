@@ -14,24 +14,21 @@ export const PLATOS =
           rate: 5,
           comment: "La mejor pizza de la ciudad.",
           autor: "Juan Fernandez",
-          dia: "15/09/2020",
-          hora: "09:05:25.00"
+          fecha: "2020-09-15T09:05:25.000000Z"
         },
         {
           id: 1,
           rate: 2,
           comment: "La salsa era muy dulce.",
           autor: "Juan Lopez",
-          dia: "19/09/2020",
-          hora: "19:05:25.30"
+          fecha: "2020-09-19T19:05:25.300000Z"
         },
         {
           id: 2,
           rate: 5,
           comment: "Excelente servicio.",
           autor: "Edurado Lopez",
-          dia: "24/09/2020",
-          hora: "14:10:25.30"
+          fecha: "2020-09-24T14:10:25.300000Z"
         }
       ]
     },
@@ -49,24 +46,21 @@ export const PLATOS =
           rate: 5,
           comment: "Excelente carne.",
           autor: "Juan Fernandez",
-          dia: "15/09/2020",
-          hora: "09:05:25.00"
+          fecha: "2020-09-15T09:05:25.000000Z"
         },
         {
           id: 1,
           rate: 5,
           comment: "Muy ricas las papas.",
           autor: "Juan Lopez",
-          dia: "19/09/2020",
-          hora: "19:05:25.30"
+          fecha: "2020-09-19T19:05:25.300000Z"
         },
         {
           id: 2,
           rate: 2,
           comment: "El pan es muy seco.",
           autor: "Edurado Lopez",
-          dia: "24/09/2020",
-          hora: "14:10:25.30"
+          fecha: "2020-09-24T14:10:25.300000Z"
         }
       ]
     },
@@ -84,24 +78,21 @@ export const PLATOS =
           rate: 5,
           comment: "El pollo en su punto.",
           autor: "Juan Fernandez",
-          dia: "15/09/2020",
-          hora: "09:05:25.00"
+          fecha: "2020-09-15T09:05:25.000000Z"
         },
         {
           id: 1,
           rate: 5,
           comment: "Excelente pan.",
           autor: "Juan Lopez",
-          dia: "19/09/2020",
-          hora: "19:05:25.30"
+          fecha: "2020-09-19T09:05:25.000000Z"
         },
         {
           id: 2,
           rate: 5,
           comment: "",
           autor: "Edurado Lopez",
-          dia: "24/09/2020",
-          hora: "14:10:25.30"
+          fecha: "2020-09-24T14:10:25.000000Z"
         }
       ]
     },
@@ -119,8 +110,7 @@ export const PLATOS =
           rate: 5,
           comment: "Delicioso topping.",
           autor: "Juan Fernandez",
-          dia: "15/09/2020",
-          hora: "09:05:25.00"
+          fecha: "2020-09-15T09:05:25.000000Z"
         }
       ]
     },
