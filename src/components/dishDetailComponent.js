@@ -1,54 +1,79 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ListGroup, ListGroupItem, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class DetallePlato extends Component {
-  render() {
+function RenderPlato({plato}) {
+  
+  if(plato != null) {
+    return(
+      <Card>
+        <CardImg top src={plato.image} alt={plato.name} />
+        <CardBody>
+          <CardTitle>{plato.name}</CardTitle>
+          <CardText>{plato.description}</CardText>
+        </CardBody>
+      </Card>
+    );
+  } else {
+    return(
+      <div></div>
+    );
+  }
 
-    if(this.props.plato != null) {
-      const comentario = this.props.plato.comments.map((comentario) => {
+}
+
+function RenderComments({comments}) {
+
+  if(comments != null) {
+    return(
+      comments.map((comment) => {
         return(
-          <li key={comentario.id} className='list-group-item'>
-            <ListGroup className='text-left'>
-              <ListGroupItem>Valoración: {comentario.rate}/5</ListGroupItem>
+          <li key={comment.id} className="list-group-item">
+            <ListGroup className="text-left">
+              <ListGroupItem>Valoración: {comment.rate}/5</ListGroupItem>
               <ListGroupItem>
                 <div className="row">
-                  <div className="col-12 col-md-6 text-left">Autor: {comentario.autor}</div>
-                  <div className="col-12 col-md-6 text-right">Día: {new Intl.DateTimeFormat('en-US', {year:'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(comentario.fecha)))}</div>
+                  <div className="col-12 col-md-6 text-left">Autor: {comment.autor}</div>
+                  <div className="col-12 col-md-6 text-right">Día: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.fecha)))}</div>
                 </div>
               </ListGroupItem>
-              <ListGroupItem>Comentario: {comentario.comment}</ListGroupItem>
+              <ListGroupItem>Comentario: {comment.comment}</ListGroupItem>
             </ListGroup>
           </li>
-        );
-      });
+        )
+      })
+    )
+  } else {
+    return(
+      <li></li>
+    )
+  }
+  
+}
 
-      return(
-        <div className='container'>
-          <div className='row'>
-            <div className="col-12 col-md-5 m-2">
-              <Card>
-                <CardImg width="100%" src={this.props.plato.image} alt={this.props.plato.name} />
-                <CardBody>
-                  <CardTitle>{this.props.plato.name}</CardTitle>
-                  <CardText className='text-left'>{this.props.plato.description}</CardText>
-                </CardBody>
-              </Card>
-            </div>
-            <div className="col-12 col-md-5 m-2">
-              <ul className='list-group list-group-flush'>
-                {comentario}
-              </ul>
-            </div>
+const DetallePlato = (props) => {
+  
+  if(props.plato != null) {
+    return(
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-md-5 m-2">
+            <RenderPlato plato={props.plato} />
+          </div>
+          <div className="col-12 col-md-5 m-2">
+            <h3 className="text-left">Comments</h3>
+            <ul className="list-group list-group-flush">
+              <RenderComments comments={props.plato.comments} />
+            </ul>
           </div>
         </div>
-      )
-    } else {
-      return(
-        <div></div>
-      )
-    }
-
+      </div>
+    )
+  } else {
+    return(
+      <div></div>
+    )
   }
+
 }
 
 export default DetallePlato;

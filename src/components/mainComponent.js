@@ -21,7 +21,7 @@ class Main extends Component {
 
   render(){
     return (
-      <div className="App">
+      <div>
         <nav className="navbar navbar-dark bg-dark">
           <div className="container">
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>

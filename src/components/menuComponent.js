@@ -1,35 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
-class Menu extends Component {
+function RenderMenuItem({plato, onClick}) {
   
-  constructor(props) {
-    super(props);
-  }
+  return(
+    <Card key={plato.id} onClick={() => onClick(plato.id)}>
+      <CardImg width="100%" src={plato.image} alt={plato.name} />
+      <CardImgOverlay>
+        <CardTitle>{plato.name}</CardTitle>
+      </CardImgOverlay>
+    </Card>
+  );
 
-  render() {
-    
-    const menu = this.props.platos.map((plato) => {
-      return (
-        <div key={plato.id} className="col-12 col-md-5 m-1">
-          <Card onClick={() => this.props.onClick(plato.id)}>
-            <CardImg width="100%" src={plato.image} alt={plato.name} />
-            <CardImgOverlay>
-              <CardTitle>{plato.name}</CardTitle>
-            </CardImgOverlay>
-          </Card>
-        </div>
-       );
-    });
+}
 
+const Menu = (props) => {
+  
+  const menu = props.platos.map((plato) => {
     return(
-      <div className="container">
-        <div className="row">
-          {menu}
-        </div>
+      <div key={plato.id} className="col-12 col-md-5 m-1">
+        <RenderMenuItem plato={plato} onClick={props.onClick} />
       </div>
-    );
-  }
+    )
+  });
+
+  return(
+    <div className="container">
+      <div className="row">
+        {menu}
+      </div>
+    </div>
+  )
+
 }
 
 export default Menu;
