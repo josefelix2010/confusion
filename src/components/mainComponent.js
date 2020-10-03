@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { NavbarBrand } from 'reactstrap';
+import Header from './headerComponent';
 import Menu from './menuComponent.js';
 import DetallePlato from './dishDetailComponent';
+import Footer from './footerComponent';
 import { PLATOS } from '../shared/platos';
 
 class Main extends Component {
@@ -22,15 +23,12 @@ class Main extends Component {
   render(){
     return (
       <div>
-        <nav className="navbar navbar-dark bg-dark">
-          <div className="container">
-            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-          </div>
-        </nav>
+        <Header />
   
         <Menu platos={this.state.platos} 
           onClick={(idPlato) => this.platoSeleccionado(idPlato)} />
         <DetallePlato plato={this.state.platos.filter((plato) => plato.id === this.state.platoElegido)[0]} />
+        <Footer />
       </div>
     );
   }

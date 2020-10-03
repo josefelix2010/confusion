@@ -60,7 +60,8 @@ const DetallePlato = (props) => {
             <RenderPlato plato={props.plato} />
           </div>
           <div className="col-12 col-md-5 m-2">
-            <h3 className="text-left">Comments</h3>
+            <h3 className="text-center">Comentarios
+            </h3>
             <ul className="list-group list-group-flush">
               <RenderComments comments={props.plato.comments} />
             </ul>

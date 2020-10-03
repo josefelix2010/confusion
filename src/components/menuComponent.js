@@ -1,14 +1,12 @@
 import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardTitle } from 'reactstrap';
 
 function RenderMenuItem({plato, onClick}) {
   
   return(
     <Card key={plato.id} onClick={() => onClick(plato.id)}>
       <CardImg width="100%" src={plato.image} alt={plato.name} />
-      <CardImgOverlay>
-        <CardTitle>{plato.name}</CardTitle>
-      </CardImgOverlay>
+      <CardTitle style={{margin: "1px"}}>{plato.name}</CardTitle>
     </Card>
   );
 
