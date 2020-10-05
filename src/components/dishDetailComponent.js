@@ -28,7 +28,7 @@ function RenderComments({comments}) {
       comments.map((comment) => {
         return(
           <li key={comment.id} className="list-group-item">
-            <ListGroup className="text-left">
+            <ListGroup>
               <ListGroupItem>Valoración: {comment.rate}/5</ListGroupItem>
               <ListGroupItem>
                 <div className="row">

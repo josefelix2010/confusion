@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer(props) {
 
   return(
     <div className="footer">
       <div className="container">
+        {/*
         <div className="row justify-content-center m-2">
           <div className="col-auto">
             <h5>Dirección y Contactos</h5>
@@ -30,13 +32,14 @@ function Footer(props) {
             </div>
           </div>
         </div>
+        */}
         <div className="row justify-content-center">
           <div className="col-auto">
             <p className="text-left" id="linksFooter">
-              <a href="#">Inicio</a>&nbsp;|&nbsp;
-              <a href="#">About Us</a>&nbsp;|&nbsp;
-              <a href="#">Menú</a>&nbsp;|&nbsp;
-              <a href="contactus.html">Contáctanos</a>
+              <Link to="/home">Inicio</Link>&nbsp;|&nbsp;
+              <Link to="/aboutus">About Us</Link>&nbsp;|&nbsp;
+              <Link to="/menu">Menú</Link>&nbsp;|&nbsp;
+              <Link to="/contactus">Contáctanos</Link>
             </p>
           </div>
         </div>

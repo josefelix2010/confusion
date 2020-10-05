@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Header from './headerComponent';
-import Menu from './menuComponent.js';
-import DetallePlato from './dishDetailComponent';
 import Footer from './footerComponent';
+import Header from './headerComponent';
+import Home from './homeComponent';
+import Menu from './menuComponent.js';
 import { PLATOS } from '../shared/platos';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
 
@@ -16,18 +17,22 @@ class Main extends Component {
     };
   }
 
-  platoSeleccionado(idPlato) {
-    this.setState({ platoElegido: idPlato })
-  }
-
   render(){
+
+    const HomePage = () => {
+      return(
+        <Home />
+      )
+    }
+
     return (
       <div>
         <Header />
-  
-        <Menu platos={this.state.platos} 
-          onClick={(idPlato) => this.platoSeleccionado(idPlato)} />
-        <DetallePlato plato={this.state.platos.filter((plato) => plato.id === this.state.platoElegido)[0]} />
+        <Switch>
+          <Route path="/home" component={HomePage} />
+          <Route exact path="/menu" component={() => <Menu platos={this.state.platos} />} />
+          <Redirect to="/home" />
+        </Switch>
         <Footer />
       </div>
     );
