@@ -2,7 +2,7 @@ export const LEADERS = [
   {
     id: 0,
     name: 'Tony Stark',
-    image: 'assets/images/desconocido.png',
+    image: 'assets/images/chef.jpeg',
     designation: 'El jefe',
     abbr: 'CEO',
     feature: false,
@@ -11,7 +11,7 @@ export const LEADERS = [
   {
     id: 1,
     name: 'Steve Rodgers',
-    image: '/assets/images/desconocido.png',
+    image: '/assets/images/chef.jpeg',
     designation: 'El jefe pero de la cocina',
     abbr: 'CFO',
     feature: false,
@@ -20,7 +20,7 @@ export const LEADERS = [
   {
     id: 2,
     name: 'Thor',
-    image: '/assets/images/desconocido.png',
+    image: '/assets/images/chef.jpeg',
     designation: 'El jefe probador',
     abbr: 'CTO',
     feature: false,
@@ -29,7 +29,7 @@ export const LEADERS = [
   {
     id: 3,
     name: 'Yo Merengues',
-    image: '/assets/images/desconocido.png',
+    image: '/assets/images/chef.jpeg',
     designation: 'Chef Ejecutivo',
     abbr: 'EC',
     feature: true,

@@ -3,7 +3,7 @@ export const PLATOS =
     {
       id: 0,
       name: 'Pizzeta',
-      image: 'assets/images/pizza.png',
+      image: '../../assets/images/pizzeta.png',
       category: 'entrada',
       label: 'Caliente',
       price: '2,49',
@@ -13,7 +13,7 @@ export const PLATOS =
     {
       id: 1,
       name: 'Hamburguesa',
-      image: 'assets/images/hamburguesa.png',
+      image: '../../assets/images/hamburguesa.png',
       category: 'principal',
       label: 'Caliente',
       price: '4,49',
@@ -23,7 +23,7 @@ export const PLATOS =
     {
       id: 2,
       name: 'Chicken Sub',
-      image: 'assets/images/chickenSub.png',
+      image: '../../assets/images/chickenSub.png',
       category: 'principal',
       label: 'Caliente',
       price: '4,19',
@@ -33,7 +33,7 @@ export const PLATOS =
     {
       id: 3,
       name: 'Cheesecake',
-      image: 'assets/images/cheesecake.png',
+      image: '../assets/images/cheesecake.png',
       category: 'postre',
       label: 'Frío',
       price: '3,19',

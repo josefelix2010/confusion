@@ -2,7 +2,7 @@ export const PROMOCIONES = [
   {
     id: 0,
     name: 'All you can eat.',
-    image: '/assets/images/allYouCanEatPromo.png',
+    image: '/assets/images/buffet.png',
     label: 'Nueva',
     price: '19.99',
     feature: true,

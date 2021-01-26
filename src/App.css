@@ -74,3 +74,20 @@
 .navbar-dark {
   background-color: #0f3057;
 }
+
+.cardImgOpaca {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: darken;
+}
+
+.listGroupItemBorderless {
+  border: none;
+}
+
+ol.breadcrumb {
+  background-color: #FFFFFF;
+}
+
+.breadcrumb-item a {
+  color: #000000;
+}

@@ -17,7 +17,7 @@ function RenderCard({item}) {
 function Home(props) {
 
   return(
-    <div className="container">
+    <div className="container mt-5 mb-5">
       <div className="row align-items-start">
         <div className="col col-12 col-md m-1">
           <RenderCard item={props.plato} />
