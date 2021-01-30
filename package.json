@@ -10,6 +10,7 @@
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
     "react": "^16.13.1",
+    "react-animation-components": "^3.0.0",
     "react-dom": "^16.13.1",
     "react-poper": "^1.1.4",
     "react-router-dom": "^5.2.0",

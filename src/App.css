@@ -57,12 +57,12 @@
 .jumbotron {
   padding:30px 25px;
   margin:0px auto;
-  background: #00587a ;
+  background: #0f3057 ;
   color:floralwhite;
 }
 
 .jumbotron:hover {
-  opacity: 0.9;
+  opacity: 0.98;
 }
 
 #linksFooter, p a {
@@ -90,4 +90,9 @@ ol.breadcrumb {
 
 .breadcrumb-item a {
   color: #000000;
+}
+
+.cardHeader {
+  background-color: #00587a;
+  color: #FFFFFF;
 }
