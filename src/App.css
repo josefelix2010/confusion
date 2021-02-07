@@ -92,7 +92,12 @@ ol.breadcrumb {
   color: #000000;
 }
 
-.cardHeader {
+.cardHeader, .modal-header {
   background-color: #00587a;
   color: #FFFFFF;
+}
+
+button.btn.btn-outline-secondary {
+  color: #FFFFFF !important; 
+  border-color: #FFFFFF !important;
 }

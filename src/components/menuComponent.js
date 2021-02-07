@@ -9,7 +9,7 @@ function RenderMenuItem({plato, onClick}) {
       <Link to={`/menu/${plato.id}`}>
         <CardImg width="100%" src={plato.image} alt={plato.name} />
         <CardImgOverlay className="cardImgOpaca">
-          <CardTitle style={{margin: "1px", color: "#FFFFFF"}}>{plato.name}</CardTitle>
+          <CardTitle style={{margin: "1px", color: "#fff"}}>{plato.name}</CardTitle>
         </CardImgOverlay>
       </Link>
     </Card>
