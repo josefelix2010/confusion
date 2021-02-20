@@ -6,41 +6,35 @@ import AboutUs from './aboutUsComponent.js';
 import Menu from './menuComponent.js';
 import Contact from './contactComponent.js';
 import DetallePlato from './dishDetailComponent.js';
-import { PLATOS } from '../shared/platos';
-import { LEADERS } from '../shared/leaders';
-import { PROMOCIONES } from '../shared/promociones';
-import { COMENTARIOS } from '../shared/comentarios';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+  return {
+    platos: state.platos,
+    leaders: state.leaders,
+    promos: state.promos,
+    comentarios: state.comentarios
+  }
+};
 
 class Main extends Component {
-
-  constructor(props){
-    super(props);
-
-    this.state = {
-      platos: PLATOS,
-      leaders: LEADERS,
-      promos: PROMOCIONES,
-      comentarios: COMENTARIOS,
-      platoElegido: null
-    };
-  }
 
   render(){
 
     const HomePage = () => {
       return(
-        <Home plato={this.state.platos.filter((plato) => plato.feature)[0]}
-          leader={this.state.leaders.filter((leader) => leader.feature)[0]}
-          promo={this.state.promos.filter((promo) => promo.feature)[0]}
+        <Home plato={this.props.platos.filter((plato) => plato.feature)[0]}
+          leader={this.props.leaders.filter((leader) => leader.feature)[0]}
+          promo={this.props.promos.filter((promo) => promo.feature)[0]}
         />
       )
     }
 
     const PlatoConId = ({match}) => {
       return(
-        <DetallePlato plato={this.state.platos.filter((plato) => plato.id === parseInt(match.params.idPlato, 10))[0]} 
-          comments={this.state.comentarios.filter((comment) => comment.platoId === parseInt(match.params.idPlato, 10))}
+        <DetallePlato plato={this.props.platos.filter((plato) => plato.id === parseInt(match.params.idPlato, 10))[0]} 
+          comments={this.props.comentarios.filter((comment) => comment.platoId === parseInt(match.params.idPlato, 10))}
         />
       )
     }
@@ -50,10 +44,10 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={HomePage} />
-          <Route exact path="/menu" component={() => <Menu platos={this.state.platos} />} />
+          <Route exact path="/menu" component={() => <Menu platos={this.props.platos} />} />
           <Route path="/menu/:idPlato" component={PlatoConId} />
           <Route exact path="/contactus" component={Contact} />
-          <Route exact path="/aboutus" component={() => <AboutUs lideres={this.state.leaders} />} />
+          <Route exact path="/aboutus" component={() => <AboutUs lideres={this.props.leaders} />} />
           <Redirect to="/home" />
         </Switch>
         <Footer />
@@ -63,4 +57,4 @@ class Main extends Component {
 
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
