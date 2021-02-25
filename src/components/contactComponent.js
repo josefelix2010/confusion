@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Breadcrumb, BreadcrumbItem, Button, Label, Input, Col, Row } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -19,34 +19,6 @@ class Contact extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  validar(nombre, apellido, telefono, email) {
-    const errores = {
-      nombre: '',
-      apellido: '',
-      telefono: '',
-      email: ''
-    }
-
-    if(this.state.touched.nombre && nombre.length < 3)
-      errores.nombre = 'Tu nombre debe tener al menos 3 caracteres.'
-    else if(this.state.touched.nombre && nombre.length > 10)
-      errores.nombre = 'Tu nombre es muy largo.'
-
-    if(this.state.touched.apellido && apellido.length < 3)
-      errores.nombre = 'Tu apellido debe tener al menos 3 caracteres.'
-    else if(this.state.touched.apellido && apellido.length > 10)
-      errores.apellido = 'Tu apellido es muy largo.'
-
-    const reg = /^\d+$/;
-    if(this.state.touched.telefono && !reg.test(telefono))
-      errores.telefono = 'El teléfono solo debe contener números.'
-
-    if (this.state.touched.email && email.split('').filter(x => x === '@').length !== 1) 
-      errores.email = 'Correo electrónico debe contener @.';
-
-    return errores;
   }
 
   handleSubmit(values) {
