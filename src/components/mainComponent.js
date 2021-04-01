@@ -8,6 +8,7 @@ import Contact from './contactComponent.js';
 import DetallePlato from './dishDetailComponent.js';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addComment } from '../redux/actionCreators';
 
 const mapStateToProps = state => {
   return {
@@ -17,6 +18,10 @@ const mapStateToProps = state => {
     comentarios: state.comentarios
   }
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  addComment: (platoId, valoracion, autor, mensaje) => dispatch(addComment(platoId, valoracion, autor, mensaje))
+})
 
 class Main extends Component {
 
@@ -35,6 +40,7 @@ class Main extends Component {
       return(
         <DetallePlato plato={this.props.platos.filter((plato) => plato.id === parseInt(match.params.idPlato, 10))[0]} 
           comments={this.props.comentarios.filter((comment) => comment.platoId === parseInt(match.params.idPlato, 10))}
+          addComment={this.props.addComment}
         />
       )
     }
@@ -57,4 +63,4 @@ class Main extends Component {
 
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

@@ -29,8 +29,8 @@ class CommentModal extends Component {
   }
 
   handleSubmit(values) {
-    console.log('Current State is: ' + JSON.stringify(values));
-    alert('Current State is: ' + JSON.stringify(values));
+    this.toggleModal();
+    this.props.addComment(this.props.platoId, values.rate, values.autor, values.comment);
   }
 
   render() {
@@ -44,8 +44,8 @@ class CommentModal extends Component {
           <ModalBody className="p-4">
             <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
               <Row className="form-group">
-                <Label htmlFor="valoracion">Valoración</Label>
-                <Control.select model=".valoracion" name="valoracion" id="valoracion"
+                <Label htmlFor="rate">Valoración</Label>
+                <Control.select model=".rate" name="rate" id="rate"
                   className="form-control">
                   <option>1</option>
                   <option>2</option>
@@ -76,8 +76,8 @@ class CommentModal extends Component {
               </Row>
 
               <Row className="form-group">
-                <Label htmlFor="mensaje" >Tu Comentario <span style={{color: "#ff0000"}}>*</span></Label>
-                <Control.textarea model=".mensaje" id="mensaje" name="mensaje" 
+                <Label htmlFor="comment" >Tu Comentario <span style={{color: "#ff0000"}}>*</span></Label>
+                <Control.textarea model=".comment" id="comment" name="comment" 
                   placeholder="Ingresa tu opinión aquí." rows="10"
                   className="form-control"
                   validators={{
@@ -85,7 +85,7 @@ class CommentModal extends Component {
                     minLength: minLength(10),
                     maxLength: maxLength(60),
                   }}/>
-                <Errors className="text-danger" model=".mensaje" show="touched" 
+                <Errors className="text-danger" model=".comment" show="touched" 
                   messages={{
                     required: "Esto es un campo requerido.",
                     minLength: "Tu comentario es muy corto.",
@@ -125,10 +125,11 @@ function RenderPlato({plato}) {
 
 }
 
-function RenderComments({comments}) {
+function RenderComments({comments, addComment, platoId}) {
 
   if(comments != null) {
     let listaComentarios = comments.map((comment) => {
+      console.log(comment);
       return(
         <li key={comment.id} className="list-group-item">
           <ListGroup>
@@ -148,7 +149,7 @@ function RenderComments({comments}) {
     return(
       <React.Fragment>
         { listaComentarios }
-        <CommentModal/>
+        <CommentModal platoId={platoId} addComment={addComment}  />
       </React.Fragment>
     )
   } else {
@@ -179,7 +180,10 @@ const DetallePlato = (props) => {
           <div className="col-12 col-md-5 m-2">
             <h3 className="text-center">Comentarios</h3>
             <ul className="list-group list-group-flush">
-              <RenderComments comments={props.comments} />
+              <RenderComments comments={props.comments}
+                addComment={props.addComment}
+                platoId={props.plato.id}
+               />
             </ul>
           </div>
         </div>
