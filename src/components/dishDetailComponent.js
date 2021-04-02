@@ -3,6 +3,7 @@ import { ListGroup, ListGroupItem, Card, CardImg, CardText, CardBody, CardTitle,
   BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Row, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Loading } from './loadingComponent.js';
 
 const required = (value) => value && value.length;
 
@@ -129,7 +130,6 @@ function RenderComments({comments, addComment, platoId}) {
 
   if(comments != null) {
     let listaComentarios = comments.map((comment) => {
-      console.log(comment);
       return(
         <li key={comment.id} className="list-group-item">
           <ListGroup>
@@ -160,8 +160,29 @@ function RenderComments({comments, addComment, platoId}) {
 }
 
 const DetallePlato = (props) => {
-  
-  if(props.plato != null) {
+
+  if(props.isLoading) {
+
+    return(
+      <div className="container">
+        <div className="row">
+          <Loading />
+        </div>
+      </div>
+    )
+
+  } else if(props.errMess) {
+
+    return(
+      <div className="container">
+        <div className="row">
+          <h4>{props.errMess}</h4>
+        </div>
+      </div>
+    )
+
+  } else if(props.plato != null) {
+
     return(
       <div className="container">
         <div className="row mb-3">
@@ -189,10 +210,13 @@ const DetallePlato = (props) => {
         </div>
       </div>
     )
+
   } else {
+
     return(
       <div></div>
     )
+
   }
 
 }

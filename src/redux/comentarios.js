@@ -7,9 +7,8 @@ export const Comentarios = (state = COMENTARIOS, action) => {
       var comentario = action.payload;
       comentario.id = state.length;
       comentario.fecha = new Date().toISOString();
-      console.log("Comentario: ",comentario);
       return state.concat(comentario);
-      break;
+      
     default:
       return state;
   }
