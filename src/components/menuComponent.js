@@ -2,13 +2,14 @@ import React from 'react';
 import { Card, CardImg, CardTitle, CardImgOverlay, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './loadingComponent.js';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderMenuItem({plato, onClick}) {
   
   return(
     <Card key={plato.id}>
       <Link to={`/menu/${plato.id}`}>
-        <CardImg width="100%" src={plato.image} alt={plato.name} />
+        <CardImg width="100%" src={baseUrl + plato.image} alt={plato.name} />
         <CardImgOverlay className="cardImgOpaca">
           <CardTitle style={{margin: "1px", color: "#fff"}}>{plato.name}</CardTitle>
         </CardImgOverlay>

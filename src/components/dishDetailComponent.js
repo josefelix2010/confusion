@@ -4,6 +4,7 @@ import { ListGroup, ListGroupItem, Card, CardImg, CardText, CardBody, CardTitle,
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './loadingComponent.js';
+import { baseUrl } from '../shared/baseUrl';
 
 const required = (value) => value && value.length;
 
@@ -111,7 +112,7 @@ function RenderPlato({plato}) {
   if(plato != null) {
     return(
       <Card>
-        <CardImg top src={plato.image} alt={plato.name} />
+        <CardImg top src={baseUrl + plato.image} alt={plato.name} />
         <CardBody>
           <CardTitle>{plato.name}</CardTitle>
           <CardText>{plato.description}</CardText>

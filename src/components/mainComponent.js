@@ -8,7 +8,7 @@ import Contact from './contactComponent.js';
 import DetallePlato from './dishDetailComponent.js';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addComment, fetchDishes } from '../redux/actionCreators';
+import { addComment, fetchComments, fetchDishes, fetchPromos } from '../redux/actionCreators';
 import { actions } from 'react-redux-form';
 
 const mapStateToProps = state => {
@@ -24,17 +24,17 @@ const mapDispatchToProps = (dispatch) => ({
   addComment: (platoId, valoracion, autor, mensaje) => dispatch(
     addComment(platoId, valoracion, autor, mensaje)),
   fetchDishes: () => {dispatch(fetchDishes())},
+  fetchPromos: () => {dispatch(fetchPromos())},
+  fetchComments: () => {dispatch(fetchComments())},
   resetFeedbackForm: () => { dispatch(actions.reset('feedback')) }
 })
 
 class Main extends Component {
 
-  constructor(props){
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchDishes();
+    this.props.fetchComments();
+    this.props.fetchPromos();
   }
 
   render(){
@@ -45,7 +45,9 @@ class Main extends Component {
           dishesLoading={this.props.platos.isLoading}
           dishesErrMess={this.props.platos.errMess}
           leader={this.props.leaders.filter((leader) => leader.feature)[0]}
-          promo={this.props.promos.filter((promo) => promo.feature)[0]}
+          promo={this.props.promos.promos.filter((promo) => promo.feature)[0]}
+          promosLoading={this.props.promos.isLoading}
+          promosErrMess={this.props.promos.errMess}
         />
       )
     }
@@ -55,7 +57,8 @@ class Main extends Component {
         <DetallePlato plato={this.props.platos.platos.filter((plato) => plato.id === parseInt(match.params.idPlato, 10))[0]} 
           isLoading={this.props.platos.isLoading}
           errMess={this.props.platos.errMess}
-          comments={this.props.comentarios.filter((comment) => comment.platoId === parseInt(match.params.idPlato, 10))}
+          comments={this.props.comentarios.comentarios.filter((comment) => comment.platoId === parseInt(match.params.idPlato, 10))}
+          commentsErrMess={this.props.comentarios.errMess}
           addComment={this.props.addComment}
         />
       )
