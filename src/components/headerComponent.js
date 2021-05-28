@@ -42,51 +42,48 @@ class Header extends Component {
     return(
       <>
         <Navbar dark expand="md">
-          <div className="container">
-            <NavbarToggler onClick={this.toggleNav} />
-            <NavbarBrand className="mr-auto" href="/">
-              <img src="../../assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
-            </NavbarBrand>
-            <Collapse navbar isOpen={this.state.isNavOpen} className={this.state.isNavOpen ? "text-left" : ""}>
-              <Nav navbar>
-                <NavItem>
-                  <NavLink className="nav-link" to="/home">
-                    <span className="fa fa-home fa-lg" /> Inicio
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/aboutus">
-                    <span className="fa fa-info fa-sm" /> About Us
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/menu">
-                    <span className="fa fa-list fa-sm" /> Menú
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/contactus">
-                    <span className="fa fa-address-card fa-sm" /> Contactos
-                  </NavLink>
-                </NavItem>
-              </Nav>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <Button outline onClick={ this.toggleModal }>
-                    <span className="fa fa-sign-in fa-lg"></span> Login
-                  </Button>
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </div>
+          <NavbarToggler onClick={this.toggleNav} />
+          <NavbarBrand className="mr-auto" href="/">
+            <img src="../../assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
+          </NavbarBrand>
+          <Collapse navbar isOpen={this.state.isNavOpen} className={this.state.isNavOpen ? "text-left" : ""}>
+            <Nav navbar>
+              <NavItem>
+                <NavLink className="nav-link" to="/home">
+                  <span className="fa fa-home fa-lg" /> Inicio
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/aboutus">
+                  <span className="fa fa-info fa-sm" /> About Us
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/menu">
+                  <span className="fa fa-list fa-sm" /> Menú
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/contactus">
+                  <span className="fa fa-address-card fa-sm" /> Contactos
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <Button outline onClick={ this.toggleModal }>
+                  <span className="fa fa-sign-in fa-lg"></span> Login
+                </Button>
+              </NavItem>
+            </Nav>
+          </Collapse>
         </Navbar>
         <Jumbotron fluid>
-          <div className="container">
+          <div>
             <div className="row row-header">
               <div className="col-12 col-sm-12">
                 <h2 className="text-left">Ristorante Con Fusion</h2>
                 <p className="text-left">Nos inspiramos en los platos más sabrosos de la comida rapida.
-                <br/>
                 Nuestras deliciosas creaciones harán vibrar tu sentido del gusto.</p>
               </div>
             </div>
