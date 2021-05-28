@@ -8,7 +8,7 @@ import Contact from './contactComponent.js';
 import DetallePlato from './dishDetailComponent.js';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addComment, fetchComments, fetchDishes, fetchPromos } from '../redux/actionCreators';
+import { postComment, fetchComments, fetchDishes, fetchPromos } from '../redux/actionCreators';
 import { actions } from 'react-redux-form';
 
 const mapStateToProps = state => {
@@ -21,8 +21,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addComment: (platoId, valoracion, autor, mensaje) => dispatch(
-    addComment(platoId, valoracion, autor, mensaje)),
+  postComment: (platoId, valoracion, autor, mensaje) => dispatch(
+    postComment(platoId, valoracion, autor, mensaje)),
   fetchDishes: () => {dispatch(fetchDishes())},
   fetchPromos: () => {dispatch(fetchPromos())},
   fetchComments: () => {dispatch(fetchComments())},
@@ -59,7 +59,7 @@ class Main extends Component {
           errMess={this.props.platos.errMess}
           comments={this.props.comentarios.comentarios.filter((comment) => comment.platoId === parseInt(match.params.idPlato, 10))}
           commentsErrMess={this.props.comentarios.errMess}
-          addComment={this.props.addComment}
+          postComment={this.props.postComment}
         />
       )
     }

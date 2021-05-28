@@ -19,8 +19,6 @@ export const Comentarios = (state = {
 
       case ActionTypes.ADD_COMMENT:
         var comentario = action.payload;
-        comentario.id = state.comentarios.length;
-        comentario.fecha = new Date().toISOString();
         return {...state, comentarios: state.comentarios.concat(comentario)};
         
       default:

@@ -1,15 +1,48 @@
 import * as ActionTypes from './actionTypes';
 import { baseUrl } from '../shared/baseUrl';
 
-export const addComment = (platoId, valoracion, autor, mensaje) => ({
+export const addComment = (comentario) => ({
   type: ActionTypes.ADD_COMMENT,
-  payload: {
+  payload: comentario
+});
+
+export const postComment = (platoId, valoracion, autor, mensaje) => (dispatch) => {
+  const nuevoComentario = {
     platoId: platoId,
     rate: valoracion,
-    comment: mensaje,
-    autor: autor
+    autor: autor,
+    comment: mensaje
   }
-});
+
+  nuevoComentario.fecha = new Date().toISOString();
+
+  return fetch(baseUrl + 'comentarios', {
+      method: 'POST',
+      body: JSON.stringify(nuevoComentario),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'same-origin'
+    })
+      .then(response => {
+        if(response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      }, error => {
+        var errMess = new Error(error.message);
+        throw errMess;
+      })
+      .then(response => response.json())
+      .then(response => dispatch(addComment(response)))
+      .catch(error => { 
+          console.log('Post comentario: ', error.message); 
+          alert("Tu comentario no puede ser posteado. \n Error: " + error.message);
+        });
+}
 
 export const fetchDishes = () => (dispatch) => {
   dispatch(dishesLoading(true));

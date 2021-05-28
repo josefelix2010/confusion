@@ -32,7 +32,7 @@ class CommentModal extends Component {
 
   handleSubmit(values) {
     this.toggleModal();
-    this.props.addComment(this.props.platoId, values.rate, values.autor, values.comment);
+    this.props.postComment(this.props.platoId, values.rate, values.autor, values.comment);
   }
 
   render() {
@@ -127,7 +127,7 @@ function RenderPlato({plato}) {
 
 }
 
-function RenderComments({comments, addComment, platoId}) {
+function RenderComments({comments, postComment, platoId}) {
 
   if(comments != null) {
     let listaComentarios = comments.map((comment) => {
@@ -150,7 +150,7 @@ function RenderComments({comments, addComment, platoId}) {
     return(
       <React.Fragment>
         { listaComentarios }
-        <CommentModal platoId={platoId} addComment={addComment}  />
+        <CommentModal platoId={platoId} postComment={postComment}  />
       </React.Fragment>
     )
   } else {
@@ -203,7 +203,7 @@ const DetallePlato = (props) => {
             <h3 className="text-center">Comentarios</h3>
             <ul className="list-group list-group-flush">
               <RenderComments comments={props.comments}
-                addComment={props.addComment}
+                postComment={props.postComment}
                 platoId={props.plato.id}
                />
             </ul>
