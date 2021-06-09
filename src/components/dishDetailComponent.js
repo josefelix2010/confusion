@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './loadingComponent.js';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 const required = (value) => value && value.length;
 
@@ -111,13 +112,17 @@ class CommentModal extends Component {
 function RenderPlato({plato}) {
   if(plato != null) {
     return(
-      <Card>
-        <CardImg top src={baseUrl + plato.image} alt={plato.name} />
-        <CardBody>
-          <CardTitle>{plato.name}</CardTitle>
-          <CardText>{plato.description}</CardText>
-        </CardBody>
-      </Card>
+      <FadeTransform in transformProps={{
+          exitTransform: 'scale(0.5) translateY)-50%)'
+        }}>
+        <Card>
+          <CardImg top src={baseUrl + plato.image} alt={plato.name} />
+          <CardBody>
+            <CardTitle>{plato.name}</CardTitle>
+            <CardText>{plato.description}</CardText>
+          </CardBody>
+        </Card>
+      </FadeTransform>
     );
   } else {
     return(
@@ -132,18 +137,22 @@ function RenderComments({comments, postComment, platoId}) {
   if(comments != null) {
     let listaComentarios = comments.map((comment) => {
       return(
-        <li key={comment.id} className="list-group-item">
-          <ListGroup>
-            <ListGroupItem className="listGroupItemBorderless">
-              <div className="row">
-                <div className="col-12 col-md-6 text-left">Autor: {comment.autor}</div>
-                <div className="col-12 col-md-6 text-right">Día: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.fecha)))}</div>
-              </div>
-            </ListGroupItem>
-            <ListGroupItem className="text-left listGroupItemBorderless">Valoración: {comment.rate}/5</ListGroupItem>
-            <ListGroupItem className="text-left listGroupItemBorderless">Comentario: {comment.comment}</ListGroupItem>
-          </ListGroup>
-        </li>
+        <Stagger in>
+          <Fade in>
+            <li key={comment.id} className="list-group-item">
+              <ListGroup>
+                <ListGroupItem className="listGroupItemBorderless">
+                  <div className="row">
+                    <div className="col-12 col-md-6 text-left">Autor: {comment.autor}</div>
+                    <div className="col-12 col-md-6 text-right">Día: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.fecha)))}</div>
+                  </div>
+                </ListGroupItem>
+                <ListGroupItem className="text-left listGroupItemBorderless">Valoración: {comment.rate}/5</ListGroupItem>
+                <ListGroupItem className="text-left listGroupItemBorderless">Comentario: {comment.comment}</ListGroupItem>
+              </ListGroup>
+            </li>
+          </Fade>
+        </Stagger>
       )
     });
 
