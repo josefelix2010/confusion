@@ -6,20 +6,27 @@ export const Comentarios = (state = {
   }, action) => {
     switch (action.type) {
       case ActionTypes.ADD_COMMENTS:
-        return {...state, 
+        return {
+          ...state, 
           isLoading: false, 
           errMess: null, 
-          COMENTARIOS: action.payload};
+          COMENTARIOS: action.payload
+        };
 
       case ActionTypes.COMMENTS_FAILED:
-        return {...state, 
+        return {
+          ...state, 
           isLoading: false, 
           errMess: action.payload, 
-          comentarios: []}
+          comentarios: []
+        }
 
       case ActionTypes.ADD_COMMENT:
         var comentario = action.payload;
-        return {...state, comentarios: state.comentarios.concat(comentario)};
+        return {
+          ...state, 
+          comentarios: state.comentarios.concat(comentario)
+        };
         
       default:
         return state;

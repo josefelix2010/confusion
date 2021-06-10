@@ -7,22 +7,28 @@ export const Platos = (state = {
   }, action) => {
   switch (action.type) {
     case ActionTypes.ADD_DISHES:
-      return {...state, 
+      return {
+        ...state, 
         isLoading: false, 
         errMess: null, 
-        platos: action.payload}
+        platos: action.payload
+      }
 
     case ActionTypes.DISHES_LOADING:
-      return {...state, 
+      return {
+        ...state, 
         isLoading: true, 
         errMess: null, 
-        platos: []}
+        platos: []
+      }
 
     case ActionTypes.DISHES_FAILED:
-      return {...state, 
+      return {
+        ...state, 
         isLoading: false, 
         errMess: action.payload, 
-        platos: []}
+        platos: []
+      }
 
     default:
       return state

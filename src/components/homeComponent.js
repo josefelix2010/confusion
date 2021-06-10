@@ -14,7 +14,6 @@ function RenderCard({item, isLoading, errMess}) {
       <h4>{errMess}</h4>
     )
   } else {
-    console.log("URL: ", baseUrl + item.image)
     return(
       <FadeTransform in transformProps={{
           exitTransform: 'scale(0.5) translateY)-50%)'
@@ -33,7 +32,6 @@ function RenderCard({item, isLoading, errMess}) {
 }
 
 function Home(props) {
-
   return(
     <div className="container mt-5 mb-5">
       <div className="row align-items-start">
@@ -48,7 +46,9 @@ function Home(props) {
             errMess={props.promosErrMess}/>
         </div>
         <div className="col col-12 col-md m-1">
-          <RenderCard item={props.leader} />
+          <RenderCard item={props.leader}
+            isLoading={props.leadersLoading}
+            errMess={props.leadersErrMess} />
         </div>
       </div>
     </div>
