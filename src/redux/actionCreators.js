@@ -178,3 +178,47 @@ export const addLeaders = (leaders) => ({
   type: ActionTypes.ADD_LEADERS,
   payload: leaders
 })
+
+export const postFeedback = (nombre, apellido, telefono, email, aprueba, tipoContacto, mensaje)  => (dispatch) => {
+  const newFeedback = {
+    firstname: nombre,
+    lastname: apellido,
+    telnum: telefono,
+    email: email,
+    agree: aprueba,
+    contactType: tipoContacto,
+    message: mensaje
+  };
+
+  newFeedback.date = new Date().toISOString();
+
+  return fetch(baseUrl + "feedback", {
+    method: "POST",
+    body: JSON.stringify(newFeedback),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    credentials: "same-origin"
+  })
+    .then(
+      response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error("Error " + response.status + ": " + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      }, error => {
+        throw error;
+      }
+    )
+    .then(response => response.json())
+    .then(response =>
+      alert("Gracias por enviar tu opinión!" + JSON.stringify(response))
+    )
+    .catch(error => {
+      console.log("post feedbacks", error.message);
+      alert("No se puso enviar tu opinión!\nError: " + error.message);
+    });
+}

@@ -5,6 +5,8 @@ import { Control, Form, Errors } from 'react-redux-form';
 
 const required = (value) => value && value.length;
 
+const requiredSelect = (value) => value != '';
+
 const maxLength = (len) => (value) => !(value) || (value.length <= len);
 
 const minLength = (len) => (value) => (value) && (value.length >= len);
@@ -22,8 +24,17 @@ class Contact extends Component {
   }
 
   handleSubmit(values) {
-    alert('Current State is: ' + JSON.stringify(values));
-    this.props.resetFeedbackForm();
+    alert(JSON.stringify(values));
+    /*this.props.postFeedback(
+      values.nombre,
+      values.apellido,
+      values.telefono,
+      values.email,
+      values.aprueba,
+      values.tipoContacto,
+      values.mensaje
+    )
+    this.props.resetFeedbackForm();*/
   }
 
   render() {
@@ -145,10 +156,19 @@ class Contact extends Component {
 
                 <Col md={{size: 3, offset: 1}}>
                   <Control.select model=".tipoContacto" name="tipoContacto" id="tipoContacto" 
-                    className="form-control">
-                    <option>Teléfono</option>
-                    <option>Correo Electrónico</option>
+                    className="form-control"
+                    validators={{
+                      requiredSelect
+                    }}>
+                    <option hidden>Seleccione</option>
+                    <option value="1">Teléfono</option>
+                    <option value="2">Correo Electrónico</option>
                   </Control.select>
+                  <Errors className="text-danger" model=".tipoContacto" show="touched" 
+                    messages={{
+                      requiredSelect: "Debe seleccionar una opción."
+                    }}
+                  />
                 </Col>
               </Row>
 
