@@ -49,5 +49,9 @@
       "not dead",
       "not op_mini all"
     ]
+  },
+  "engines": {
+    "node": "v14.17.0",
+    "npm": "6.14.13"
   }
 }
