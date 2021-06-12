@@ -36,6 +36,8 @@ const AboutUs = (props) => {
         </Fade>
       );
     });
+
+    console.log("PROPS: ", isLoading, errMess, leaders);
     
     if(isLoading) {
       return(
@@ -58,7 +60,7 @@ const AboutUs = (props) => {
         <div className="col-12">
           <Breadcrumb>
             <BreadcrumbItem><Link to="/home">Inicio</Link></BreadcrumbItem>
-            <BreadcrumbItem active>About Us</BreadcrumbItem>
+            <BreadcrumbItem active>Sobre Nosotros</BreadcrumbItem>
           </Breadcrumb>
         </div>
       </div>
