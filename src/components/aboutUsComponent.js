@@ -36,8 +36,6 @@ const AboutUs = (props) => {
         </Fade>
       );
     });
-
-    console.log("PROPS: ", isLoading, errMess, leaders);
     
     if(isLoading) {
       return(
