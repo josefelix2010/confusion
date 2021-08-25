@@ -1,0 +1,204 @@
+{
+  "PLATOS": [
+    {
+      "id": 0,
+      "name": "Pizzeta",
+      "image": "../assets/images/pizzeta.png",
+      "category": "entrada",
+      "label": "Caliente",
+      "price": "2,49",
+      "feature": true,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare."
+    },
+    {
+      "id": 1,
+      "name": "Hamburguesa",
+      "image": "../assets/images/hamburguesa.png",
+      "category": "principal",
+      "label": "Caliente",
+      "price": "4,49",
+      "feature": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare."
+    },
+    {
+      "id": 2,
+      "name": "Chicken Sub",
+      "image": "../assets/images/chickenSub.png",
+      "category": "principal",
+      "label": "Caliente",
+      "price": "4,19",
+      "feature": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare."
+    },
+    {
+      "id": 3,
+      "name": "Cheesecake",
+      "image": "../assets/images/cheesecake.png",
+      "category": "postre",
+      "label": "Frío",
+      "price": "3,19",
+      "feature": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare."
+    }
+  ],
+  "COMENTARIOS": [
+    {
+      "id": 0,
+      "platoId": 0,
+      "rate": 5,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Juan Fernandez",
+      "fecha": "2020-09-15T09:05:25.000000Z"
+    },
+    {
+      "id": 1,
+      "platoId": 0,
+      "rate": 2,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Juan Lopez",
+      "fecha": "2020-09-19T19:05:25.300000Z"
+    },
+    {
+      "id": 2,
+      "platoId": 0,
+      "rate": 5,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Edurado Lopez",
+      "fecha": "2020-09-24T14:10:25.300000Z"
+    },
+    {
+      "id": 3,
+      "platoId": 1,
+      "rate": 5,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Juan Fernandez",
+      "fecha": "2020-09-15T09:05:25.000000Z"
+    },
+    {
+      "id": 4,
+      "platoId": 1,
+      "rate": 5,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Juan Lopez",
+      "fecha": "2020-09-19T19:05:25.300000Z"
+    },
+    {
+      "id": 5,
+      "platoId": 1,
+      "rate": 2,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Edurado Lopez",
+      "fecha": "2020-09-24T14:10:25.300000Z"
+    },
+    {
+      "id": 6,
+      "platoId": 2,
+      "rate": 5,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Juan Fernandez",
+      "fecha": "2020-09-15T09:05:25.000000Z"
+    },
+    {
+      "id": 7,
+      "platoId": 2,
+      "rate": 5,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Juan Lopez",
+      "fecha": "2020-09-19T09:05:25.000000Z"
+    },
+    {
+      "id": 8,
+      "platoId": 2,
+      "rate": 5,
+      "comment": "",
+      "autor": "Edurado Lopez",
+      "fecha": "2020-09-24T14:10:25.000000Z"
+    },
+    {
+      "id": 9,
+      "platoId": 3,
+      "rate": 5,
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "autor": "Juan Fernandez",
+      "fecha": "2020-09-15T09:05:25.000000Z"
+    },
+    {
+      "platoId": 0,
+      "rate": "5",
+      "autor": "xchgdsffg",
+      "comment": "Mauris lectus neque, scelerisque eu pellentesque vel, convallis.",
+      "fecha": "2021-05-28T01:40:36.747Z",
+      "id": 10
+    },
+    {
+      "platoId": 0,
+      "rate": "4",
+      "autor": "Jose Chaparro",
+      "comment": "Comentario de prueba",
+      "fecha": "2021-08-25T18:23:56.507Z",
+      "id": 11
+    }
+  ],
+  "PROMOCIONES": [
+    {
+      "id": 0,
+      "name": "All you can eat.",
+      "image": "../assets/images/buffet.png",
+      "label": "Nueva",
+      "price": "19.99",
+      "feature": true,
+      "description": "Gran promoción de todo lo que puedas comer."
+    }
+  ],
+  "LEADERS": [
+    {
+      "id": 0,
+      "name": "Fundador y CEO",
+      "image": "../assets/images/chef.jpeg",
+      "designation": "CEO",
+      "abbr": "CEO",
+      "feature": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut risus dolor. Vestibulum sit amet eros molestie, iaculis lorem et, laoreet lectus. Nam ut quam ante. Aenean aliquam volutpat risus, at pellentesque leo cursus nec. Aliquam erat volutpat. In hac habitasse platea dictumst. Phasellus eu eros eget lectus sagittis ornare."
+    },
+    {
+      "id": 1,
+      "name": "Jefe de Cocina",
+      "image": "../assets/images/chef.jpeg",
+      "designation": "Jefe de Cocina",
+      "abbr": "CFO",
+      "feature": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut risus dolor. Vestibulum sit amet eros molestie, iaculis lorem et, laoreet lectus. Nam ut quam ante. Aenean aliquam volutpat risus, at pellentesque leo cursus nec. Aliquam erat volutpat. In hac habitasse platea dictumst. Phasellus eu eros eget lectus sagittis ornare."
+    },
+    {
+      "id": 2,
+      "name": "Jefe de Prueba",
+      "image": "../assets/images/chef.jpeg",
+      "designation": "Jefe Tester",
+      "abbr": "CTO",
+      "feature": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut risus dolor. Vestibulum sit amet eros molestie, iaculis lorem et, laoreet lectus. Nam ut quam ante. Aenean aliquam volutpat risus, at pellentesque leo cursus nec. Aliquam erat volutpat. In hac habitasse platea dictumst. Phasellus eu eros eget lectus sagittis ornare."
+    },
+    {
+      "id": 3,
+      "name": "Chef Ejecutivo",
+      "image": "../assets/images/chef.jpeg",
+      "designation": "Chef Ejecutivo",
+      "abbr": "EC",
+      "feature": true,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut risus dolor. Vestibulum sit amet eros molestie, iaculis lorem et, laoreet lectus. Nam ut quam ante. Aenean aliquam volutpat risus, at pellentesque leo cursus nec. Aliquam erat volutpat. In hac habitasse platea dictumst. Phasellus eu eros eget lectus sagittis ornare."
+    }
+  ],
+  "feedback": [
+    {
+      "firstname": "fdas",
+      "lastname": "afds",
+      "telnum": "134113",
+      "email": "dafdads@daffas.dfdafd",
+      "agree": true,
+      "contactType": "Email",
+      "message": "afadsfds",
+      "date": "2020-12-04T09:41:49.890Z",
+      "id": 1
+    }
+  ]
+}
